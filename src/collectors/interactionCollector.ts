@@ -38,7 +38,7 @@ export const interactionCollector = async (
 				}
 
 				const file = await import(
-					path.resolve(__dirname, `../actions/${type}/${i.customId}.ts`)
+					path.resolve(__dirname, `../actions/${type}/${i.customId}.{ts,js}`)
 				);
 
 				if (props) {
