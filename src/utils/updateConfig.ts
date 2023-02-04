@@ -1,7 +1,34 @@
 import { Config } from "../models/Config";
 
 export default async (field: string, value: string | number): Promise<void> => {
-	if (field === "whiteListRoles") {
+	if (
+		![
+			"bot_add",
+			"delete_channel",
+			"create_channel",
+			"edit_channel",
+			"delete_role",
+			"create_role",
+			"edit_role",
+			"webhook_create",
+			"webhook_edit",
+			"member_edit",
+			"disable_invites",
+			"delete_invite",
+			"ban",
+			"kick",
+			"everyone_ping",
+			"url_protection",
+			"guild_name",
+			"warn_limit",
+			"warn_suppression_action",
+			"white_list_roles",
+		].some((x) => x === field)
+	) {
+		return console.error("Invalid field!");
+	}
+
+	if (field === "white_list_roles") {
 		await Config.updateOne(
 			{},
 			{
@@ -13,65 +40,10 @@ export default async (field: string, value: string | number): Promise<void> => {
 		return;
 	}
 
-	const fields = {
-		addBot: {
-			bot_add: value,
-		},
-		deleteChannel: {
-			delete_channel: value,
-		},
-		createChannel: {
-			create_channel: value,
-		},
-		editChannel: {
-			edit_channel: value,
-		},
-		deleteRole: {
-			delete_role: value,
-		},
-		createRole: {
-			create_role: value,
-		},
-		editRole: {
-			edit_role: value,
-		},
-		createWebhook: {
-			webhook_create: value,
-		},
-		editWebhook: {
-			webhook_edit: value,
-		},
-		editMember: {
-			member_edit: value,
-		},
-		disableInvites: {
-			disable_invites: value,
-		},
-		deleteInvite: {
-			delete_invite: value,
-		},
-		ban: {
-			ban: value,
-		},
-		kick: {
-			kick: value,
-		},
-		everyonePing: {
-			everyone_ping: value,
-		},
-		urlProtection: {
-			url_protection: value,
-		},
-		warnLimit: {
-			warn_limit: value,
-		},
-		warnSuppressionAction: {
-			warn_suppression_action: value,
-		},
-		guildName: {
-			guild_name: value,
-		},
-	};
-
-	await Config.updateOne({}, fields[field]);
+	await Config.updateOne(
+		{},
+		{
+			[field]: value,
+		}
+	);
 };

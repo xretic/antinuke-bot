@@ -3,7 +3,6 @@ import actionRows from "../../data/actionRows";
 import configValueNames from "../../data/configValueNames";
 import embeds from "../../data/embeds";
 import { Config } from "../../models/Config";
-import currectAction from "../../utils/currectAction";
 import { interactionCollector } from "../../collectors/interactionCollector";
 
 export const execute = async (
@@ -59,7 +58,7 @@ export const execute = async (
 		],
 		components: [
 			actionRows.selectAction(
-				currectAction(selectMenuInteraction.values[0], config),
+				config[selectMenuInteraction.values[0]],
 				selectMenuInteraction.values[0]
 			),
 		],

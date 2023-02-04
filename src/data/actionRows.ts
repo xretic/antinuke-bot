@@ -7,7 +7,6 @@ import {
 	TextInputBuilder,
 	TextInputStyle,
 } from "discord.js";
-import { Action } from "../models/Config";
 
 export default {
 	antiNukePanel(): ActionRowBuilder<StringSelectMenuBuilder> {
@@ -18,51 +17,51 @@ export default {
 				.setOptions([
 					{
 						label: "Добавление бота",
-						value: "addBot",
+						value: "bot_add",
 					},
 					{
 						label: "Удаление канала",
-						value: "deleteChannel",
+						value: "delete_channel",
 					},
 					{
 						label: "Создание канала",
-						value: "createChannel",
+						value: "create_channel",
 					},
 					{
 						label: "Изменение канала",
-						value: "editChannel",
+						value: "edit_channel",
 					},
 					{
 						label: "Удаление роли",
-						value: "deleteRole",
+						value: "delete_role",
 					},
 					{
 						label: "Создание роли",
-						value: "createRole",
+						value: "create_role",
 					},
 					{
 						label: "Изменение роли",
-						value: "editRole",
+						value: "edit_role",
 					},
 					{
 						label: "Создание вебхука",
-						value: "createWebhook",
+						value: "webhook_create",
 					},
 					{
 						label: "Изменение вебхука",
-						value: "editWebhook",
+						value: "webhook_edit",
 					},
 					{
 						label: "Изменение участника",
-						value: "editMember",
+						value: "member_edit",
 					},
 					{
 						label: "Отключение инвайтов",
-						value: "disableInvites",
+						value: "disable_invites",
 					},
 					{
 						label: "Удаление инвайта",
-						value: "deleteInvite",
+						value: "delete_invite",
 					},
 					{
 						label: "Бан",
@@ -74,27 +73,27 @@ export default {
 					},
 					{
 						label: "Пинг @everyone",
-						value: "everyonePing",
+						value: "everyone_ping",
 					},
 					{
 						label: "Защита ссылки",
-						value: "urlProtection",
+						value: "url_protection",
 					},
 					{
 						label: "Изменение название сервера",
-						value: "guildName",
+						value: "guild_name",
 					},
 					{
 						label: "Лимит варнов",
-						value: "warnLimit",
+						value: "warn_limit",
 					},
 					{
 						label: "После пресечение лимита",
-						value: "warnSuppressionAction",
+						value: "warn_suppression_action",
 					},
 					{
 						label: "Вайт-лист роли",
-						value: "whiteListRoles",
+						value: "white_list_roles",
 					},
 				])
 		);
