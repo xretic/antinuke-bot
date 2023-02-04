@@ -51,7 +51,9 @@ export default async (
 						break;
 
 					case "Quarantine":
-						await member.roles.set([]).catch(() => {});
+						member.roles.cache.forEach(async (x) => {
+							await member.roles.remove(x).catch(() => {});
+						});
 						break;
 				}
 
@@ -86,7 +88,9 @@ export default async (
 			break;
 
 		case "Quarantine":
-			await member.roles.set([]).catch(() => {});
+			member.roles.cache.forEach(async (x) => {
+				await member.roles.remove(x).catch(() => {});
+			});
 			await sendLog(
 				embeds.notification(
 					"Карантин",
