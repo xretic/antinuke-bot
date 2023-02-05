@@ -69,7 +69,7 @@ export const execute = async (
 		components: [],
 	});
 
-	await updateConfig("whiteListRoles", roleSelectMenuInteraction.values[0]);
+	await updateConfig("white_list_roles", roleSelectMenuInteraction.values[0]);
 
 	const updatedConfig = await Config.findOne({});
 

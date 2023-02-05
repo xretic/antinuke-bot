@@ -12,7 +12,7 @@ export const execute = async (
 	const config = await Config.findOne({});
 
 	switch (selectMenuInteraction.values[0]) {
-		case "whiteListRoles":
+		case "white_list_roles":
 			await selectMenuInteraction.reply({
 				ephemeral: true,
 				embeds: [
@@ -33,13 +33,13 @@ export const execute = async (
 			);
 			break;
 
-		case "warnLimit":
+		case "warn_limit":
 			await selectMenuInteraction.showModal(actionRows.setWarnLimit());
 			break;
 	}
 
 	if (
-		["whiteListRoles", "warnLimit"].some(
+		["white_list_roles", "warn_limit"].some(
 			(x) => x === selectMenuInteraction.values[0]
 		)
 	) {
